@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Load Calculation</title>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" type="text/css" href="loadcal.css">
+    <script type="text/javascript" src="loadcal.js"></script>
+    
+    <style>
+        * {
+            font: 17px Calibri;
+        }
+
+        table {
+            width: 70%;
+        }
+
+        table,
+        th,
+        td {
+            border: solid 1px #000000;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+            <tr>
+                <th>Appliance</th>
+                <th>Power Rating (Watt)</th>
+                <th>Unit</th>
+                <th>Daily Usage (Hrs)</th>
+                <th>Total AC Load (Watt)</th>
+                <th>Total Energy Consumption</th>
+            </tr>
+
+            <tr>
+                <td><input type="text" id="appliance_name"></td>
+                <td><input type="number" id="power_rating"></td>
+                <td><input type="number" id="unit"></td>
+                <td><input type="number" id="daily_usage"></td>
+                <td><p id="total_ac_load"></td>
+                <td><p id="total_energy_consumption"></p></td>
+                <td><input type="button" class="add" onclick="addRow();" value="Add Row"></td>
+            </tr>
+
+        </table>
+    </div>
+    <div><input type="button" onclick="calculate();" value="Calculate"></div>
+    <div>
+        <p>Inverter Rating KVA</p>
+        <p id="inverter_rating"></p> 
+        <p>Energy Required from Battery (kwh/day)</p>
+        <p id="battery_energy"></p>
+        <p>Battery Storage (kwh/day)</p>
+        <p id="battery_storage"></p>
+        <p>Single Battery Rating</p>
+        <p id="single_battery_rating"></p>
+        <p>Battery Units for 1 day</p>
+        <p id="battery_units"></p>
+        <p>Input Energy to Battery Unit (kwh/day)</p>
+        <p id="input_energy_to_battery_unit"></p>
+        <p>Energy Required from panel</p>
+        <p id="energy_required_from_panel"></p>
+        <p>Total Energy from panel (Must Generate)</p>
+        <p id="total_energy_from_panel"></p>
+        <p>Power rating of Solar panel (KW)</p>
+        <p id="power_rating_of_solar_panel"></p>
+        <p>Number of panel</p>
+        <p id="no_of_panel"></p>
+        <p>Area Required (M2)</p>
+        <p id="area_required"></p>
+    </div>
+    <div class="popup" id="popup-1">
+    <div class="overlay"></div>
+        <div class="content">
+        <div class="close-btn" onclick="togglePopup()">&times;</div>
+            <h1>Assumptions</h1>
+            <p>Following assumptions taken for the data calculation under consideration:</p>
+            <ul>
+                <li> The load consumption by user (variable as per user requirements) </li>
+<li> The internal and external constraints, power losses among components </li>
+<li> Annual GHI (Global Horizontal Irradiation) in delhi =5.5 kwh/m2/day. Varies from region to region </li>
+<ul>
+<li>a)	Solar panel’s solar irradiation rating is 1000w/m2 (standard test condition).</li>
+<li>b)	Hours of solar radiation is 5.5h/day</li>
+    </ul>
+<li> Battery voltage and ampere hour Rating (variable as per user requirements), DOD: depth of discharge of lead acid battery</li>
+<li>Power rating of the solar panel given by manufacturer (variable as per load requirements).</li>
+<li> solar panel of 250W, Battery rating of 200AH </li>
+</ul>
+        </div>
+    </div>
+    <button onclick="togglePopup()">Important Note</button>
+</body>
+
+</html>

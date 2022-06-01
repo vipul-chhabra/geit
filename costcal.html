@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cost Calculation</title>
+    <script type="text/javascript" src="costcal.js"></script>
+    <link rel="stylesheet" type="text/css" href="costcal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Cost Calculation</h1>
+    <div class="bg-image"></div>
+    <div class="container">
+        <h2>Solar Panel</h2>
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>Power Rating (Watt)</th>
+                <th>Unit</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="select-wrapper">
+                        <select id="solar_panel_company">
+                            <option value="Vikram">Vikram</option>
+                            <option value="Geo Power">Geo Power</option>
+                            <option value="Solar India">Solar India</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <select id="solar_panel_power_rating">
+                        <option value="160">160</option>
+                        <option value="200">200</option>
+                        <option value="250">250</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" min="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" id="solar_panel_unit">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <h2>Solar Battery</h2>
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>Rating (Ah)</th>
+                <th>Unit</th>
+            </tr>
+            <tr>
+                <td>
+                    <select id="solar_battery_company">
+                        <option value="Loom Solar">Loom Solar</option>
+                        <option value="Okaya">Okaya</option>
+                        <option value="Amaron">Amaron</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="solar_battery_rating">
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="300">300</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" min="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" id="solar_battery_unit">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <h2>Solar Inverter</h2>
+        <table>
+
+            <tr>
+                <th>Company</th>
+                <th>Rating (KVA)</th>
+            </tr>
+            <tr>
+                <td>
+                    <select id="solar_inverter_company">
+                        <option value="Loom Solar">Loom Solar</option>
+                        <option value="Luminous">Luminous</option>
+                        <option value="Microtek">Microtek</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="solar_inverter_rating">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="7.5">7.5</option>
+                    </select>
+                </td>
+                <!-- <td><input type="number" id="solar_inverter_unit"></td> -->
+            </tr>
+
+        </table>
+    </div>
+    <div class="result-container">
+        <div>
+            <input id="button" type="button" onclick="calculateCost();" value="Calculate">
+        </div>
+        <div id="total_cost">Cost</div>
+    </div>
+    <!--me -->
+    
+    
+    <div class="popup" id="popup-1">
+    <div class="overlay"></div>
+        <div class="content">
+        <div class="close-btn" onclick="togglePopup()">&times;</div>
+            <h1>Installment Accessories</h1>
+            <p>There are many other small and major components used in solar panel installation whose cost depends upon site engineer's analysis. Some components are mentioned below:</p>
+            <ul>
+               <li>ACDB</li>
+                <li>Lighting Arrester</li>
+                <li>DC Wire</li>
+                <li>AC Wire</li>
+                <li>MC4</li>
+                <li>Wire Thimbles</li>
+                <li>Earthen Kit</li>
+                <li>Labour Charges</li>
+            </ul>
+        </div>
+    </div>
+    <button onclick="togglePopup()">Important Note</button>
+    
+    
+  <h1>Products Available </h1>  
+<div class="wrap">
+<div class="tile"> 
+  <img src="pic/1200px-Fixed_Tilt_Solar_panel_at_Canterbury_Municipal_Building_Canterbury_New_Hampshire.jpg"/>
+  <div class="text">
+  <h1>1. Solar Panel</h1>
+  <h2 class="animate-text">Available</h2>
+  <p class="animate-text">A Solar panel is the primary component of a solar energy system. It is used to convert sunlight into electricity. </p>
+<div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </div>
+ </div>
+
+
+<div class="tile"> 
+  <img src="pic/amaron150.jpg"/>
+  <div class="text">
+  <h1>2. Solar Battery</h1>
+  <h2 class="animate-text">Available</h2>
+  <p class="animate-text">Solar battery is the power storing component that stores electricity and runs loads as the grid powers off. </p>
+<div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </div>
+ </div>
+  
+  <div class="tile"> 
+  <img src="pic/images.jpg"/>
+  <div class="text">
+  <h1>3. Solar Inverter </h1>
+  <h2 class="animate-text">Available</h2>
+  <p class="animate-text">A Solar inverter is the central component of a solar energy system that converts DC into AC. </p>
+<div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </div>
+ </div>
+</div>
+  
+  
+
+    <!--me-->
+    
+</body>
+
+</html>

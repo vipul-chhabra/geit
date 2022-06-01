@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contactus.css">
+</head>
+<body>
+    <div class="container">
+    <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>Contact Us</h3>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Email id" required>
+        <input type="text" id="phone" placeholder="Phone no." required>
+        <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+        <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+                  Email.send({
+            SecureToken: "a85ff62e-7815-4ddc-ba77-b8ebdb1520ed",
+            To : 'hahagupta509@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "Contact form",
+            Body : "Name: "+document.getElementById("name").value
+                   +"<br> Email: "+document.getElementById("email").value
+                    +"<br> Phone no: "+document.getElementById("phone").value
+                    +"<br> Message: "+document.getElementById("message").value  
+        }).then(
+          message => alert("Message Sent Succesfully")
+        );  
+        }
+    </script>
+    </body>
+</html>
